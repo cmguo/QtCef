@@ -149,7 +149,7 @@ void QCefOSWidget::sendProcessMessage(CefProcessId pid, CefRefPtr<CefProcessMess
 {
     if (m_browser)
     {
-        m_browser->SendProcessMessage(pid, processMessage);
+        m_browser->GetFrame(0)->SendProcessMessage(pid, processMessage);
         trySendProcessMessages();
     }
     else
@@ -167,7 +167,7 @@ void QCefOSWidget::trySendProcessMessages()
     {
         Q_FOREACH(CefProcessMessageWrapper message, m_pendingProcessMessages)
         {
-            m_browser->SendProcessMessage(message.pid, message.processMessage);
+            m_browser->GetFrame(0)->SendProcessMessage(message.pid, message.processMessage);
         }
 
         m_pendingProcessMessages.clear();
@@ -451,7 +451,7 @@ bool QCefOSWidget::createBrowser()
     CefBrowserSettings settings = QCefClient::defaultBrowseSetting();
     settings.windowless_frame_rate = 60;
 
-    if (CefBrowserHost::CreateBrowser(info, m_clientHandler.get(), url().toStdWString(), settings, NULL))
+    if (CefBrowserHost::CreateBrowser(info, m_clientHandler.get(), url().toStdWString(), settings, nullptr, NULL))
     {
         m_status = QCefOSWidget::Initing;
         return true;

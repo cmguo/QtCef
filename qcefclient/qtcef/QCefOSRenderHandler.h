@@ -43,7 +43,7 @@ protected:
     virtual bool GetRootScreenRect(CefRefPtr<CefBrowser> browser,
         CefRect& rect);
 
-    virtual bool GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect);
+    virtual void GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect);
 
     virtual bool GetScreenPoint(CefRefPtr<CefBrowser> browser,
         int viewX,

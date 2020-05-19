@@ -8,7 +8,7 @@ include(../common/config.pri)
 
 PRECOMPILED_HEADER = stable.h
 
-INCLUDEPATH +=  ../deps/cef3538
+INCLUDEPATH +=  ../deps/cef3538 ../src/cef
 
 DEFINES += Q_DLL_QCEFCLIENT
 

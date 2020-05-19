@@ -8,7 +8,7 @@ PRECOMPILED_HEADER = stable.h
 
 #INCLUDEPATH +=  ../common/src/cef
 
-INCLUDEPATH +=  ../deps/cef3538
+INCLUDEPATH +=  ../deps/cef3538 ../src/cef
 
 LIBS += libcef_dll_wrapper.lib
 LIBS += libcef.lib

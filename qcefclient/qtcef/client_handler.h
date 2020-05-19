@@ -75,6 +75,7 @@ public:
         CefWindowInfo& windowInfo,
         CefRefPtr<CefClient>& client,
         CefBrowserSettings& settings,
+        CefRefPtr<CefDictionaryValue>& extra_info,
         bool* no_javascript_access)  OVERRIDE;
     virtual void OnAfterCreated(CefRefPtr<CefBrowser> browser) OVERRIDE;
     virtual bool DoClose(CefRefPtr<CefBrowser> browser) OVERRIDE;

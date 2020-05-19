@@ -49,7 +49,7 @@ public:
                 CefRefPtr<CefProcessMessage> message = CefProcessMessage::Create("AddListner");
                 message->GetArgumentList()->SetSize(1);
                 message->GetArgumentList()->SetString(0, m_eventPah.toUtf8().constData());
-                browser->SendProcessMessage(PID_BROWSER, message);
+                browser->GetFrame(0)->SendProcessMessage(PID_BROWSER, message);
                 retval = CefV8Value::CreateBool(true);
             }
         }

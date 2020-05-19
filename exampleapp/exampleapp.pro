@@ -7,7 +7,7 @@ QT += widgets
 include(../common/config.pri)
 
 PRECOMPILED_HEADER = stable.h
-INCLUDEPATH +=  ../common/src/cef
+INCLUDEPATH +=  ../common/src/cef ../src/cef
 LIBS += qcefclient.lib
 
 HEADERS += $$files(./demoapi.h)

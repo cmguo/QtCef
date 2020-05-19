@@ -35,7 +35,7 @@ bool QCefOSRenderHandler::GetRootScreenRect(CefRefPtr<CefBrowser> browser, CefRe
     return false;
 }
 
-bool QCefOSRenderHandler::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect)
+void QCefOSRenderHandler::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect)
 {
     CEF_REQUIRE_UI_THREAD();
 
@@ -44,7 +44,6 @@ bool QCefOSRenderHandler::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& re
         GetDeviceScaleFactor());
     rect.height = DeviceToLogical(m_windowRect.height(),
         GetDeviceScaleFactor());
-    return true;
 }
 
 bool QCefOSRenderHandler::GetScreenPoint(CefRefPtr<CefBrowser> browser, int viewX, int viewY, int& screenX, int& screenY)

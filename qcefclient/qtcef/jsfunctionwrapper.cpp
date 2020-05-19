@@ -24,7 +24,7 @@ void JsFunctionWrapper::invoke(QVariantList argument)
             message->GetArgumentList()->SetString(0, funcGuid().toUtf8().constData());
             message->GetArgumentList()->SetList(1, convertToCefList(argument));
 
-            browser->SendProcessMessage(PID_RENDERER, message);
+            browser->GetFrame(0)->SendProcessMessage(PID_RENDERER, message);
         }
     }
 }

@@ -14,5 +14,6 @@ QClientApp::QClientApp()
 
 void QClientApp::OnRegisterCustomSchemes(CefRawPtr<CefSchemeRegistrar> registrar)
 {
-    registrar->AddCustomScheme("qcef-file", true, false, false, false, true, false);
+    cef_scheme_options_t options;
+    registrar->AddCustomScheme("qcef-file", options);
 }

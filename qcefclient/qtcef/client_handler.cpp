@@ -88,7 +88,7 @@ void QCefClientHandler::ExcuteJavascript(const QString& code)
     {
         CefRefPtr<CefProcessMessage> processMessage = CefProcessMessage::Create("RunJavascript");
         processMessage->GetArgumentList()->SetString(0, code.toStdWString());
-        browser_->SendProcessMessage(PID_RENDERER, processMessage);
+        browser_->GetFrame(0)->SendProcessMessage(PID_RENDERER, processMessage);
     }
 }
 
@@ -99,7 +99,7 @@ void QCefClientHandler::SendProcessMessage(const CefString& sigName, const CefSt
     {
         CefRefPtr<CefProcessMessage> processMessage = CefProcessMessage::Create(sigName);
         processMessage->GetArgumentList()->SetString(0, args1);
-        browser_->SendProcessMessage(PID_RENDERER, processMessage);
+        browser_->GetFrame(0)->SendProcessMessage(PID_RENDERER, processMessage);
     }
 }
 
@@ -156,7 +156,7 @@ void QCefClientHandler::OnTitleChange(CefRefPtr<CefBrowser> browser, const CefSt
 
 bool QCefClientHandler::OnBeforePopup(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, const CefString& target_url, const CefString& target_frame_name, 
     CefLifeSpanHandler::WindowOpenDisposition target_disposition, bool user_gesture, const CefPopupFeatures& popupFeatures, CefWindowInfo& windowInfo,
-    CefRefPtr<CefClient>& client, CefBrowserSettings& settings, bool* no_javascript_access)
+    CefRefPtr<CefClient>& client, CefBrowserSettings& settings, CefRefPtr<CefDictionaryValue>& extra_info, bool* no_javascript_access)
 {
     (browser); (frame); (target_frame_name); (target_disposition);(user_gesture); (popupFeatures); (windowInfo); (client); (settings); (no_javascript_access);
     CEF_REQUIRE_IO_THREAD();

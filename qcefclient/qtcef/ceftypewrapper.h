@@ -34,7 +34,7 @@ public:
 Q_DECLARE_METATYPE(QCefListValueWrapper);
 
 
-inline QVariant converStringArg(CefRefPtr<QCefClientHandler> client, QString& arg)
+inline QVariant converStringArg(CefRefPtr<QCefClientHandler> client, QString const & arg)
 {
     QVariant result;
     if (arg.startsWith("S_"))

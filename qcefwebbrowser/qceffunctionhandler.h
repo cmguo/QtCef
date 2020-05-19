@@ -70,7 +70,7 @@ public:
     QCefRenderProcessHandler* m_renderHandler;
     CefRefPtr<CefFrame> m_frame;
 
-    QCefFunctionHandler(QCefRenderProcessHandler* handler, CefRefPtr<CefFrame>& frame)
+    QCefFunctionHandler(QCefRenderProcessHandler* handler, CefRefPtr<CefFrame> const & frame)
         : m_renderHandler(handler)
         , m_frame(frame)
     {
@@ -225,7 +225,7 @@ public:
         message->GetArgumentList()->SetString(1, name);
         message->GetArgumentList()->SetList(2, argList);
         message->GetArgumentList()->SetString(3, callbackId.toStdString());
-        browser->SendProcessMessage(PID_BROWSER, message);
+        browser->GetFrame(0)->SendProcessMessage(PID_BROWSER, message);
         return true; 
     }
 
